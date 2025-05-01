@@ -1,17 +1,15 @@
 package com.exercises;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import com.utilities.Console;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        int numOfPeople = Console.readNumber("Enter number of people: ", 1, 100);
+        int numOfPizza = Console.readNumber("Enter number of pizzas: ", 1, 30);
+        int numOfSlicesPerPizza = Console.readNumber("Enter number of slices per pizza: ", 2, 12);
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        var pizzaCalc = new PizzaCalculator(numOfPeople,numOfPizza,numOfSlicesPerPizza);
+        var pizzaReport = new PizzaReport(pizzaCalc);
+        pizzaReport.display();
     }
 }
