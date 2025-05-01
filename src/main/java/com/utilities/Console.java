@@ -3,19 +3,19 @@ package com.utilities;
 import java.util.Scanner;
 
 public class Console {
-    public static Scanner scanner = new Scanner(System.in);
+    public static Scanner input = new Scanner(System.in);
 
     public static int readNumber(String promptMessage, int min, int max) {
         int data = 0;
         boolean isValidInput = false;
         while (!isValidInput) {
             System.out.print(promptMessage);
-            if (scanner.hasNextInt()) {
-                data = scanner.nextInt();
+            if (input.hasNextInt()) {
+                data = input.nextInt();
                 isValidInput = checkIfWithinRange(data, min, max);
             } else {
                 System.out.println("ERROR, enter a whole number");
-                scanner.next();//use this to eat the invalid input in the scanner stream
+                input.next();//use this to eat the invalid input in the scanner stream
             }
         }
         return data;
@@ -23,13 +23,13 @@ public class Console {
 
     public static String readString(String promptMessage) {
         System.out.print(promptMessage);
-        String data = scanner.next();
+        String data = input.next();
         return data;
     }
 
     public static String readLine(String promptMessage) {
         System.out.print(promptMessage);
-        String data = scanner.nextLine();
+        String data = input.nextLine();
         System.out.println();
         return data;
     }
